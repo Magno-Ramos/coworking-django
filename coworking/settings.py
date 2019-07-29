@@ -15,7 +15,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'https://coworking-aplication.herokuapp.com/'
+    'coworking-aplication.herokuapp.com'
 ]
 
 REST_FRAMEWORK = {
