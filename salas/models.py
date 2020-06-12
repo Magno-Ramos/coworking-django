@@ -17,7 +17,7 @@ class Sala(models.Model):
 
 
 class FotosSala(models.Model):
-    image = models.ImageField(upload_to='images/salas')
+    image = models.ImageField(upload_to='imagens/salas')
     sala = models.ForeignKey(Sala, on_delete=models.CASCADE, related_name='fotos')
 
     def __str__(self):

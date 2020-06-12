@@ -1,0 +1,15 @@
+{% extends 'dashboard_base.html' %}
+
+{% block 'navbar' %}
+    {% include 'dashboard_navbar.html' with active='agendamentos' %}
+{% endblock %}
+
+{% block 'content' %}
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Deseja realmente delete este agendamento ?</p>
+        <input type="submit" value="Excluir">
+    </form>
+
+{% endblock %}

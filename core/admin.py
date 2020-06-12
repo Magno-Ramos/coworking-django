@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import Coworking
+from django.contrib.auth.admin import UserAdmin
+from .models import Coworking, User
 
 
 # Register your models here.
 admin.site.register(Coworking)
+admin.site.register(User, UserAdmin)

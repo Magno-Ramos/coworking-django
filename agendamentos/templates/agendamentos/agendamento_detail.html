@@ -1,0 +1,14 @@
+{% extends 'dashboard_base.html' %}
+
+{% block 'navbar' %}
+    {% include 'dashboard_navbar.html' with active='agendamentos' %}
+{% endblock %}
+
+{% block 'content' %}
+
+    {{ object.solicitante }}
+
+    <a href="{% url 'agendamento_update_cbv' object.pk %}">Editar</a>
+    <a href="{% url 'agendamento_delete_cbv' object.pk %}">Excluir</a>
+
+{% endblock %}

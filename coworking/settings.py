@@ -15,7 +15,9 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'coworking-aplication.herokuapp.com'
+    'coworking-aplication.herokuapp.com',
+    '127.0.0.1',
+    'localhost'
 ]
 
 REST_FRAMEWORK = {
@@ -101,6 +103,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
+AUTH_USER_MODEL = 'core.User'
+
 LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'America/Sao_Paulo'
@@ -125,6 +129,10 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = 'media'
 
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = '/dashboard/'
+
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 # https://git.heroku.com/coworking-aplication.git
 # https://coworking-aplication.herokuapp.com/

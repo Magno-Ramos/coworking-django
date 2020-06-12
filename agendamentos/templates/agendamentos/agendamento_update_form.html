@@ -1,0 +1,17 @@
+{% extends 'dashboard_base.html' %}
+
+{% block 'navbar' %}
+    {% include 'dashboard_navbar.html' with active='agendamentos' %}
+{% endblock %}
+
+{% block 'content' %}
+
+<form method="post">
+    {% crsf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Atualizar">
+</form>
+
+{% endblock %}
+

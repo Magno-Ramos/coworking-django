@@ -1,0 +1,34 @@
+{% extends 'dashboard_base.html' %}
+
+{% block 'navbar'  %}
+    {% include 'dashboard_navbar.html' with active="agendamentos" %}
+{% endblock %}
+
+{% block 'content' %}
+
+<h1>Meus Agendamentos</h1>
+
+
+<table class="table">
+    <thead>
+    <th>Cliente</th>
+    <th>Início</th>
+    <th>Término</th>
+    <th>Status</th>
+    </thead>
+    <tbody>
+    {% for a in object_list %}
+    <tr onclick="window.location.href='{% url 'agendamentos_detail_cbv' a.pk %}'" class="click-enable">
+        <td> {{ a.solicitante }} </a> </td>
+        <td>{{ a.horario_inicio }}</td>
+        <td>{{ a.horario_termino }}</td>
+        <td>{{ a.status }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<a href="{% url 'agendamento_create_cbv' %}">Novo Agendamento</a>
+
+{% endblock %}

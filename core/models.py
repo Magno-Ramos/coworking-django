@@ -1,6 +1,25 @@
 from django.db import models
 from enderecos.models import Endereco
 from clientes.models import Cliente
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    TYPE_CLIENT = 0
+    TYPE_OWNER = 1
+
+    USER_TYPE_CHOICE = [
+        (TYPE_OWNER, 'Empresa'),
+        (TYPE_OWNER, 'Cliente')
+    ]
+
+    username = None
+    email = models.EmailField('email', max_length=254, unique=True, blank=False)
+    full_name = models.CharField('name', max_length=254, blank=False)
+    type = models.PositiveSmallIntegerField('tipo', default=0, choices=USER_TYPE_CHOICE)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
 
 # Create your models here.
